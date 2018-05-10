@@ -1,0 +1,40 @@
+Idioma español neutro para OC 2.3.0.2 v2   -   manual de instalación
+====================================================================
+
+ SOLO PARA OPENCART 2.3.0.2
+También está incluido el idioma para el instalador de opencart
+Después de descomprimir los ficheros y copiarlos en tu tienda deberás entrar en la parte de
+administración e ir a: System/localization/Languages:
+
+1.- Crear un idioma nuevo poniendo:
+
+Language name (Nombre del Idioma): Español
+
+Code: es-es   (Al subir la carpeta al ftp ya la reconoce y hay que elegirla en el desplegable.)
+
+Estado: Activado (Enabled)
+Orden: 2
+
+2.- Para ponerlo por defecto tendrás que ir a System/Setting/Local
+
+Poner Language: Español
+
+3.- Para ponerlo en la tienda por defecto tendrás que ir a Sistema/Gestión de Tiendas/local/Idioma
+
+Poner Language: Español
+
+Están traducidos los módulos esenciales, algunos módulos como de pago o envió no están traducidos.
+
+Dirección de la extensión:
+http://www.opencart.com/index.php?route=extension/extension/info&extension_id=19054
+
+Demos:
+
+Demo - Área de Administración
+http://test.sontechs.com/admin
+Usuario y contraseña: admin
+
+Demo - Tienda
+http://test.sontechs.com
+
+Sontechs.com

@@ -1,0 +1,132 @@
+<?php
+// Heading
+$_['heading_title']           = 'Ordenes';
+
+// Text
+$_['text_success']               = 'Correcto: Se ha modificado el modulo ordenes!';
+$_['text_list']               = 'Lista de Ordenes';
+$_['text_add']                = 'Agregar Orden';
+$_['text_edit']               = 'Editar Orden';
+$_['text_order_detail']       = 'Detalles de Orden';
+$_['text_customer_detail']       = 'Detalles de cliente';
+$_['text_option']                = 'Opciones';
+$_['text_store']                 = 'Tienda';
+$_['text_date_added']            = 'Agregado';
+$_['text_payment_method']     = 'Forma de Pago:';
+$_['text_shipping_method']       = 'Metodo de envio';
+$_['text_customer']           = 'Cliente:';
+$_['text_customer_group']     = 'Grupo de Clientes:';
+$_['text_email']              = 'Email:';
+$_['text_telephone']          = 'Teléfono:';
+$_['text_invoice']         = 'Factura:';
+$_['text_reward']             = 'Puntos de Premio:';
+$_['text_affiliate']          = 'Afiliado:';
+$_['text_order']              = 'Orden (#%s)';
+$_['text_payment_address']       = 'Direccion de pago';
+$_['text_shipping_address']      = 'Direccion de envio';
+$_['text_comment']            = 'Comentario:';
+$_['text_history']               = 'Historial de Orden';
+$_['text_history_add']           = 'Agregar Historial del Orden';
+$_['text_account_custom_field']  = 'Campo personalizado de cuenta';
+$_['text_payment_custom_field']  = 'Campo personalizado de pago';
+$_['text_shipping_custom_field'] = 'Campo personalizado de envio';
+$_['text_browser']               = 'Explorador';
+$_['text_ip']                 = 'Dirección IP';
+$_['text_forwarded_ip']       = 'Redirección IP';
+$_['text_user_agent']         = 'User Agent';
+$_['text_accept_language']    = 'Aceptar Idioma';
+$_['text_order_id']           = 'ID de Orden:';
+$_['text_fax']                = 'Fax:';
+$_['text_website']            = 'Web:';
+$_['text_invoice_no']         = 'No. Factura';
+$_['text_invoice_date']       = 'Fecha de Factura:';
+$_['text_sku']                = 'SKU:';
+$_['text_upc']                = 'UPC:';
+$_['text_ean']                = 'EAN:';
+$_['text_jan']                = 'JAN:';
+$_['text_isbn']               = 'ISBN:';
+$_['text_mpn']                = 'MPN:';
+$_['text_missing']     		  = 'Ordenes Abandonadas';
+$_['text_default']            = 'Predeterminada';
+$_['text_product']            = 'Agregar Producto(s)';
+$_['text_voucher']            = 'Agregar Vale(s)';
+$_['text_shipping']           = 'Envío';
+$_['text_contact']            = 'Contacto';
+$_['text_reward_added']       = 'Exito: Puntos de Premio agregados!';
+$_['text_reward_removed']     = 'Exito: Puntos de Premio removidos!';
+$_['text_commission_added']   = 'Exito: Comisión agregada!';
+$_['text_commission_removed'] = 'Exito: Comisión removida!';
+$_['text_restock']            = 'Exito: Productos se han vuelto agregar al inventario!';
+$_['text_upload']             = 'Tu Archivo fue cargado correctamente!';
+$_['text_picklist']           = 'Despachar Nota';
+
+// Column
+$_['column_order_id']         = 'ID de Orden';
+$_['column_customer']         = 'Cliente';
+$_['column_status']           = 'Estado';
+$_['column_date_added']       = 'Fecha registrada';
+$_['column_date_modified']    = 'Fecha modificada';
+$_['column_total']            = 'Total';
+$_['column_product']          = 'Producto';
+$_['column_model']            = 'Modelo';
+$_['column_quantity']         = 'Cantidad';
+$_['column_price']            = 'Precio Unitario';
+$_['column_comment']          = 'Comentario';
+$_['column_notify']           = 'Cliente Notificado';
+$_['column_location']         = 'Ubicación';
+$_['column_reference']        = 'Referencia';
+$_['column_action']           = 'Modificar';
+$_['column_weight']           = 'Peso del Producto';
+
+// Entry
+$_['entry_store']             = 'Tienda:';
+$_['entry_customer']          = 'Cliente:';
+$_['entry_customer_group']    = 'Grupo de Clientes:';
+$_['entry_firstname']         = 'Nombre:';
+$_['entry_lastname']          = 'Apellidos:';
+$_['entry_email']             = 'Email:';
+$_['entry_telephone']         = 'Teléfono:';
+$_['entry_fax']               = 'Fax:';
+$_['entry_address']           = 'Seleccionar Dirección:';
+$_['entry_company']           = 'Empresa:';
+$_['entry_address_1']         = 'Dirección 1:';
+$_['entry_address_2']         = 'Dirección 2:';
+$_['entry_city']              = 'Ciudad:';
+$_['entry_postcode']          = 'Código Postal:';
+$_['entry_country']           = 'País:';
+$_['entry_zone']              = 'Ciudad::';
+$_['entry_zone_code']         = 'Provincia:';
+$_['entry_product']           = 'Producto:';
+$_['entry_option']            = 'Escoger Opcion(es):';
+$_['entry_quantity']          = 'Cantidad:';
+$_['entry_to_name']           = 'Nombre del que Recibe:';
+$_['entry_to_email']          = 'Email del que Recibe:';
+$_['entry_from_name']         = 'Nombre del que Envia:';
+$_['entry_from_email']        = 'Email del que Envia:';
+$_['entry_theme']             = 'Razon del Vale de Regalo:';
+$_['entry_message']           = 'Mensaje:';
+$_['entry_amount']            = 'Monto:';
+$_['entry_affiliate']         = 'Afiliado:';
+$_['entry_order_status']      = 'Estado de la Orden:';
+$_['entry_notify']            = 'Notificar al Cliente:';
+$_['entry_override']             = 'Anular';
+$_['entry_comment']           = 'Comentario:';
+$_['entry_currency']          = 'Moneda:';
+$_['entry_shipping_method']   = 'Método de Envío:';
+$_['entry_payment_method']    = 'Método de Pago:';
+$_['entry_coupon']            = 'Cupón:';
+$_['entry_voucher']           = 'Vale:';
+$_['entry_reward']            = 'Recompensa:';
+$_['entry_order_id']          = 'ID de Orden';
+$_['entry_total']             = 'Total';
+$_['entry_date_added']        = 'Creada';
+$_['entry_date_modified']     = 'Modificada';
+
+// Help
+$_['help_override']           = 'Si el pedido del cliente est&aacute; siendo bloqueado y no podr&aacute; cambiar el estado del pedido debido a una extensi&oacute;n antifraude activada.';
+
+// Error
+$_['error_warning']           = 'Advertencia: Favor de verificar cuidadosamente la forma por errores!';
+$_['error_permission']        = 'Advertencia: No tiene permiso para modificar Ordenes!';
+$_['error_action']            = 'Advertencia: No se pudo completar este proceso!';
+$_['error_filetype']			 = 'Tipo de archivo invalido!';
