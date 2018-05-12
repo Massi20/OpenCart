@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2018 a las 21:54:18
+-- Tiempo de generación: 12-05-2018 a las 20:32:41
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -834,9 +834,8 @@ CREATE TABLE `oc_coupon` (
 --
 
 INSERT INTO `oc_coupon` (`coupon_id`, `name`, `code`, `type`, `discount`, `logged`, `shipping`, `total`, `date_start`, `date_end`, `uses_total`, `uses_customer`, `status`, `date_added`) VALUES
-(4, '-10% Discount', '2222', 'P', '10.0000', 0, 0, '0.0000', '2014-01-01', '2020-01-01', 10, '10', 0, '2009-01-27 13:55:03'),
-(5, 'Free Shipping', '3333', 'P', '0.0000', 0, 1, '100.0000', '2014-01-01', '2014-02-01', 10, '10', 0, '2009-03-14 21:13:53'),
-(6, '-10.00 Discount', '1111', 'F', '10.0000', 0, 0, '10.0000', '2014-01-01', '2020-01-01', 100000, '10000', 0, '2009-03-14 21:15:18');
+(4, '-30% ', '3030', 'P', '30.0000', 1, 0, '0.0000', '2016-01-01', '2020-01-01', 10000, '10000', 1, '2009-01-27 13:55:03'),
+(6, '-40%', '4040', 'P', '40.0000', 1, 0, '40.0000', '2016-01-01', '2020-01-01', 100000, '10000', 1, '2009-03-14 21:15:18');
 
 -- --------------------------------------------------------
 
@@ -848,6 +847,18 @@ CREATE TABLE `oc_coupon_category` (
   `coupon_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `oc_coupon_category`
+--
+
+INSERT INTO `oc_coupon_category` (`coupon_id`, `category_id`) VALUES
+(4, 61),
+(4, 63),
+(4, 65),
+(6, 61),
+(6, 63),
+(6, 65);
 
 -- --------------------------------------------------------
 
@@ -864,6 +875,14 @@ CREATE TABLE `oc_coupon_history` (
   `date_added` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `oc_coupon_history`
+--
+
+INSERT INTO `oc_coupon_history` (`coupon_history_id`, `coupon_id`, `order_id`, `customer_id`, `amount`, `date_added`) VALUES
+(1, 4, 18, 7, '-29.2500', '2018-05-12 12:27:37'),
+(2, 4, 19, 7, '-12.0000', '2018-05-12 12:32:04');
+
 -- --------------------------------------------------------
 
 --
@@ -875,6 +894,18 @@ CREATE TABLE `oc_coupon_product` (
   `coupon_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `oc_coupon_product`
+--
+
+INSERT INTO `oc_coupon_product` (`coupon_product_id`, `coupon_id`, `product_id`) VALUES
+(20, 4, 50),
+(16, 6, 56),
+(15, 6, 60),
+(19, 4, 55),
+(18, 4, 60),
+(17, 6, 50);
 
 -- --------------------------------------------------------
 
@@ -1181,13 +1212,6 @@ CREATE TABLE `oc_customer_wishlist` (
   `product_id` int(11) NOT NULL,
   `date_added` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `oc_customer_wishlist`
---
-
-INSERT INTO `oc_customer_wishlist` (`customer_id`, `product_id`, `date_added`) VALUES
-(7, 53, '2018-05-10 13:28:22');
 
 -- --------------------------------------------------------
 
@@ -2098,7 +2122,10 @@ INSERT INTO `oc_order` (`order_id`, `invoice_no`, `invoice_prefix`, `store_id`, 
 (13, 0, 'INV-2018-00', 0, 'Online Closet', 'http://localhost/OpenCart/upload/', 6, 1, 'Carolina', 'Mora', 'caro@gmail.com', '89842956', '', '', 'Carolina', 'Mora', '', 'Heredia, Costa Rica', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Pago contraentrega', 'cod', 'Carolina', 'Mora', '', 'Heredia, Costa Rica', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Precio Fijo de Envío', 'flat.flat', '', '34.0000', 1, 0, '0.0000', 0, '', 2, 2, 'USD', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', 'es-ES,es;q=0.9', '2018-05-10 10:04:44', '2018-05-10 10:04:50'),
 (14, 0, 'INV-2018-00', 0, 'Online Closet', 'http://localhost/OpenCart/upload/', 7, 1, 'Online Closet', 'tienda', 'onlineclosetg@gmail.com', '89842956', '', '', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Pago contraentrega', 'cod', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Precio Fijo de Envío', 'flat.flat', '', '17.0000', 1, 0, '0.0000', 0, '', 2, 2, 'USD', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', 'es-ES,es;q=0.9', '2018-05-10 10:24:31', '2018-05-10 10:24:37'),
 (15, 0, 'INV-2018-00', 0, 'Online Closet', 'http://localhost/OpenCart/upload/', 7, 1, 'Online Closet', 'tienda', 'onlineclosetg@gmail.com', '89842956', '', '', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Pago contraentrega', 'cod', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Precio Fijo de Envío', 'flat.flat', '', '95.0000', 1, 0, '0.0000', 0, '', 2, 2, 'USD', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', 'es-ES,es;q=0.9', '2018-05-10 13:00:30', '2018-05-10 13:00:37'),
-(16, 0, 'INV-2018-00', 0, 'Online Closet', 'http://localhost/OpenCart/upload/', 7, 1, 'Online Closet', 'tienda', 'onlineclosetg@gmail.com', '89842956', '', '', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Pago contraentrega', 'cod', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Precio Fijo de Envío', 'flat.flat', '', '43.0000', 1, 0, '0.0000', 0, '', 2, 2, 'USD', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', 'es-ES,es;q=0.9', '2018-05-10 13:16:32', '2018-05-10 13:16:42');
+(16, 0, 'INV-2018-00', 0, 'Online Closet', 'http://localhost/OpenCart/upload/', 7, 1, 'Online Closet', 'tienda', 'onlineclosetg@gmail.com', '89842956', '', '', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Pago contraentrega', 'cod', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Precio Fijo de Envío', 'flat.flat', '', '43.0000', 1, 0, '0.0000', 0, '', 2, 2, 'USD', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', 'es-ES,es;q=0.9', '2018-05-10 13:16:32', '2018-05-10 13:16:42'),
+(17, 0, 'INV-2018-00', 0, 'Online Closet', 'http://localhost/OpenCart/upload/', 7, 1, 'Online Closet', 'tienda', 'onlineclosetg@gmail.com', '89842956', '', '', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Pago contraentrega', 'cod', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Precio Fijo de Envío', 'flat.flat', '', '102.5000', 0, 0, '0.0000', 0, '', 2, 2, 'USD', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', 'es-ES,es;q=0.9', '2018-05-12 12:18:05', '2018-05-12 12:18:05'),
+(18, 0, 'INV-2018-00', 0, 'Online Closet', 'http://localhost/OpenCart/upload/', 7, 1, 'Online Closet', 'tienda', 'onlineclosetg@gmail.com', '89842956', '', '', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Pago contraentrega', 'cod', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Precio Fijo de Envío', 'flat.flat', '', '73.2500', 1, 0, '0.0000', 0, '', 2, 2, 'USD', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', 'es-ES,es;q=0.9', '2018-05-12 12:27:30', '2018-05-12 12:27:37'),
+(19, 0, 'INV-2018-00', 0, 'Online Closet', 'http://localhost/OpenCart/upload/', 7, 1, 'Online Closet', 'tienda', 'onlineclosetg@gmail.com', '89842956', '', '', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Pago contraentrega', 'cod', 'Alfonso', 'Gonzalez', '', 'La Puebla', '', 'Heredia', '', 'Costa Rica', 51, 'Heredia', 785, '', '[]', 'Precio Fijo de Envío', 'flat.flat', '', '33.0000', 1, 0, '0.0000', 0, '', 2, 2, 'USD', '1.00000000', '::1', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36', 'es-ES,es;q=0.9', '2018-05-12 12:31:58', '2018-05-12 12:32:04');
 
 -- --------------------------------------------------------
 
@@ -2133,7 +2160,9 @@ INSERT INTO `oc_order_history` (`order_history_id`, `order_id`, `order_status_id
 (11, 13, 1, 0, '', '2018-05-10 10:04:50'),
 (12, 14, 1, 0, '', '2018-05-10 10:24:37'),
 (13, 15, 1, 0, '', '2018-05-10 13:00:37'),
-(14, 16, 1, 0, '', '2018-05-10 13:16:42');
+(14, 16, 1, 0, '', '2018-05-10 13:16:42'),
+(15, 18, 1, 0, '', '2018-05-12 12:27:37'),
+(16, 19, 1, 0, '', '2018-05-12 12:32:04');
 
 -- --------------------------------------------------------
 
@@ -2197,7 +2226,16 @@ INSERT INTO `oc_order_product` (`order_product_id`, `order_id`, `product_id`, `n
 (19, 13, 86, 'Conjunto', 'Casual', 1, '29.0000', '29.0000', '0.0000', 0),
 (20, 14, 104, 'Pijama', 'Pijamas', 1, '12.0000', '12.0000', '0.0000', 0),
 (21, 15, 112, 'jeans', 'jeans mujer', 1, '90.0000', '90.0000', '0.0000', 0),
-(22, 16, 54, 'Vestido', 'Formal', 1, '38.0000', '38.0000', '0.0000', 0);
+(22, 16, 54, 'Vestido', 'Formal', 1, '38.0000', '38.0000', '0.0000', 0),
+(23, 17, 55, 'Blusa', 'Casual', 1, '25.0000', '25.0000', '0.0000', 0),
+(24, 17, 57, 'Blusa', 'Casual', 1, '23.5000', '23.5000', '0.0000', 0),
+(25, 17, 59, 'Blusa', 'Casual', 1, '24.0000', '24.0000', '0.0000', 0),
+(26, 17, 60, 'Camisa', 'Camisa', 1, '25.0000', '25.0000', '0.0000', 0),
+(27, 18, 55, 'Blusa', 'Casual', 1, '25.0000', '25.0000', '0.0000', 0),
+(28, 18, 57, 'Blusa', 'Casual', 1, '23.5000', '23.5000', '0.0000', 0),
+(29, 18, 59, 'Blusa', 'Casual', 1, '24.0000', '24.0000', '0.0000', 0),
+(30, 18, 60, 'Camisa', 'Camisa', 1, '25.0000', '25.0000', '0.0000', 0),
+(31, 19, 53, 'Vestido', 'Casual', 1, '40.0000', '40.0000', '0.0000', 0);
 
 -- --------------------------------------------------------
 
@@ -2370,7 +2408,18 @@ INSERT INTO `oc_order_total` (`order_total_id`, `order_id`, `code`, `title`, `va
 (45, 15, 'total', 'Total', '95.0000', 9),
 (46, 16, 'sub_total', 'Sub-Total', '38.0000', 1),
 (47, 16, 'shipping', 'Precio Fijo de Envío', '5.0000', 3),
-(48, 16, 'total', 'Total', '43.0000', 9);
+(48, 16, 'total', 'Total', '43.0000', 9),
+(49, 17, 'sub_total', 'Sub-Total', '97.5000', 1),
+(50, 17, 'shipping', 'Precio Fijo de Envío', '5.0000', 3),
+(51, 17, 'total', 'Total', '102.5000', 9),
+(52, 18, 'sub_total', 'Sub-Total', '97.5000', 1),
+(53, 18, 'shipping', 'Precio Fijo de Envío', '5.0000', 3),
+(54, 18, 'coupon', 'Cupon (3030)', '-29.2500', 4),
+(55, 18, 'total', 'Total', '73.2500', 9),
+(56, 19, 'sub_total', 'Sub-Total', '40.0000', 1),
+(57, 19, 'shipping', 'Precio Fijo de Envío', '5.0000', 3),
+(58, 19, 'coupon', 'Cupon (3030)', '-12.0000', 4),
+(59, 19, 'total', 'Total', '33.0000', 9);
 
 -- --------------------------------------------------------
 
@@ -2439,16 +2488,16 @@ CREATE TABLE `oc_product` (
 
 INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`, `mpn`, `location`, `quantity`, `stock_status_id`, `image`, `manufacturer_id`, `shipping`, `price`, `points`, `tax_class_id`, `date_available`, `weight`, `weight_class_id`, `length`, `width`, `height`, `length_class_id`, `subtract`, `minimum`, `sort_order`, `status`, `viewed`, `date_added`, `date_modified`) VALUES
 (54, 'Formal', '', '', '', '', '', '', '', 2, 6, 'catalog/vestido1.jpg', 0, 1, '38.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 4, '2018-04-28 16:05:34', '2018-04-28 16:58:54'),
-(55, 'Casual', '', '', '', '', '', '', '', 10, 6, 'catalog/blusa4.jpg', 0, 1, '25.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 1, '2018-04-28 16:58:14', '2018-04-28 16:58:14'),
+(55, 'Casual', '', '', '', '', '', '', '', 9, 6, 'catalog/blusa4.jpg', 0, 1, '25.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 1, '2018-04-28 16:58:14', '2018-04-28 16:58:14'),
 (56, 'Formal', '', '', '', '', '', '', '', 16, 6, 'catalog/blusa.jpg', 0, 1, '23.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 17:01:38', '2018-04-28 17:01:38'),
-(57, 'Casual', '', '', '', '', '', '', '', 14, 6, 'catalog/blusa2.jpg', 0, 1, '23.5000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 1, '2018-04-28 17:03:16', '2018-04-28 17:03:16'),
+(57, 'Casual', '', '', '', '', '', '', '', 13, 6, 'catalog/blusa2.jpg', 0, 1, '23.5000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 1, '2018-04-28 17:03:16', '2018-04-28 17:03:16'),
 (58, 'Casual', '', '', '', '', '', '', '', 18, 6, 'catalog/blusa1.jpg', 0, 1, '27.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 1, '2018-04-28 17:06:40', '2018-04-28 17:08:45'),
-(59, 'Casual', '', '', '', '', '', '', '', 12, 6, 'catalog/blusa3.jpg', 0, 1, '24.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 17:08:07', '2018-04-28 17:08:58'),
+(59, 'Casual', '', '', '', '', '', '', '', 11, 6, 'catalog/blusa3.jpg', 0, 1, '24.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 17:08:07', '2018-04-28 17:08:58'),
 (50, 'Formal', '', '', '', '', '', '', '', 11, 6, 'catalog/vestidoformal.jpg', 0, 1, '44.5300', 0, 0, '2018-04-22', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 4, '2018-04-22 15:39:09', '2018-04-28 16:59:19'),
 (51, 'Casual', '', '', '', '', '', '', '', 2, 6, 'catalog/vetsido5.jpg', 0, 1, '35.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 15:58:48', '2018-04-28 16:47:32'),
 (52, 'Formal', '', '', '', '', '', '', '', 1, 6, 'catalog/vestido.jpg', 0, 1, '175.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 16:00:21', '2018-04-28 16:47:39'),
-(53, 'Casual', '', '', '', '', '', '', '', 2, 6, 'catalog/vestido4.jpg', 0, 1, '40.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 16:02:36', '2018-04-28 16:47:50'),
-(60, 'Camisa', '', '', '', '', '', '', '', 10, 6, 'catalog/imagen.jpg', 0, 1, '25.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 20:18:49', '2018-04-28 20:34:19'),
+(53, 'Casual', '', '', '', '', '', '', '', 1, 6, 'catalog/vestido4.jpg', 0, 1, '40.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 16:02:36', '2018-04-28 16:47:50'),
+(60, 'Camisa', '', '', '', '', '', '', '', 9, 6, 'catalog/imagen.jpg', 0, 1, '25.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 20:18:49', '2018-04-28 20:34:19'),
 (61, 'Camisa Casual', '', '', '', '', '', '', '', 4, 6, 'catalog/Hombre-Quiksilver-Post-Surf-Camisa-para-Blanco-ihlyKCTA9.jpg', 0, 1, '30.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-28 20:19:53', '2018-04-28 20:34:51'),
 (62, 'jeans', '', '', '', '', '', '', '', 10, 6, 'catalog/67.jpg', 0, 1, '80.0000', 0, 0, '2018-04-28', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 1, '2018-04-28 20:39:54', '2018-04-29 10:58:58'),
 (63, 'Camisa', '', '', '', '', '', '', '', 15, 6, 'catalog/1972edb7-9aad-4001-a372-dab419a319d9.jpg', 0, 1, '20.0000', 0, 0, '2018-04-29', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, 0, '2018-04-29 10:49:10', '2018-04-29 10:49:48'),
@@ -3336,7 +3385,7 @@ INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
 ('0fdd26fb916bc22733d4963628', '{\"language\":\"es-es\",\"currency\":\"USD\",\"user_id\":\"1\",\"user_token\":\"6RG3kQCmE83n60e5hGUuFlw46MMkZxN4\"}', '2018-05-07 04:23:57'),
 ('1ea01a1d94666b2bc9cea7b2d9', '{\"language\":\"es-es\",\"currency\":\"USD\",\"user_id\":\"1\",\"user_token\":\"plt1GYr1gPlbHx8Y2GWkkjgqhzhJRKu3\",\"customer_id\":\"5\",\"payment_address\":{\"address_id\":\"3\",\"firstname\":\"Cristina\",\"lastname\":\"Rodriguez\",\"company\":\"\",\"address_1\":\"San Isidro\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Heredia\",\"zone_id\":\"785\",\"zone\":\"Heredia\",\"zone_code\":\"HE\",\"country_id\":\"51\",\"country\":\"Costa Rica\",\"iso_code_2\":\"CR\",\"iso_code_3\":\"CRI\",\"address_format\":\"\",\"custom_field\":null},\"shipping_address\":{\"address_id\":\"3\",\"firstname\":\"Cristina\",\"lastname\":\"Rodriguez\",\"company\":\"\",\"address_1\":\"San Isidro\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Heredia\",\"zone_id\":\"785\",\"zone\":\"Heredia\",\"zone_code\":\"HE\",\"country_id\":\"51\",\"country\":\"Costa Rica\",\"iso_code_2\":\"CR\",\"iso_code_3\":\"CRI\",\"address_format\":\"\",\"custom_field\":null}}', '2018-05-08 22:43:36'),
 ('2d7394231f294edd1750a1826b', '{\"user_id\":\"1\",\"user_token\":\"gpSkvogXmTpVho81QS11G2BuH0Vrguxo\",\"language\":\"es-es\",\"currency\":\"USD\",\"account\":\"register\",\"customer_id\":\"7\",\"shipping_address\":{\"address_id\":\"5\",\"firstname\":\"Alfonso\",\"lastname\":\"Gonzalez\",\"company\":\"\",\"address_1\":\"La Puebla\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Heredia\",\"zone_id\":\"785\",\"zone\":\"Heredia\",\"zone_code\":\"HE\",\"country_id\":\"51\",\"country\":\"Costa Rica\",\"iso_code_2\":\"CR\",\"iso_code_3\":\"CRI\",\"address_format\":\"\",\"custom_field\":null},\"payment_address\":{\"address_id\":\"5\",\"firstname\":\"Alfonso\",\"lastname\":\"Gonzalez\",\"company\":\"\",\"address_1\":\"La Puebla\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Heredia\",\"zone_id\":\"785\",\"zone\":\"Heredia\",\"zone_code\":\"HE\",\"country_id\":\"51\",\"country\":\"Costa Rica\",\"iso_code_2\":\"CR\",\"iso_code_3\":\"CRI\",\"address_format\":\"\",\"custom_field\":null}}', '2018-05-10 17:33:48'),
-('33d31172126245d8ad67dff90a', '{\"language\":\"es-es\",\"currency\":\"USD\",\"user_id\":\"1\",\"user_token\":\"okUEAWhJJCTHfuGJEOYtcufxjaXFGyUe\",\"customer_id\":\"7\",\"shipping_address\":{\"address_id\":\"5\",\"firstname\":\"Alfonso\",\"lastname\":\"Gonzalez\",\"company\":\"\",\"address_1\":\"La Puebla\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Heredia\",\"zone_id\":\"785\",\"zone\":\"Heredia\",\"zone_code\":\"HE\",\"country_id\":\"51\",\"country\":\"Costa Rica\",\"iso_code_2\":\"CR\",\"iso_code_3\":\"CRI\",\"address_format\":\"\",\"custom_field\":null},\"payment_address\":{\"address_id\":\"5\",\"firstname\":\"Alfonso\",\"lastname\":\"Gonzalez\",\"company\":\"\",\"address_1\":\"La Puebla\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Heredia\",\"zone_id\":\"785\",\"zone\":\"Heredia\",\"zone_code\":\"HE\",\"country_id\":\"51\",\"country\":\"Costa Rica\",\"iso_code_2\":\"CR\",\"iso_code_3\":\"CRI\",\"address_format\":\"\",\"custom_field\":null},\"compare\":[\"53\",\"54\"]}', '2018-05-10 19:55:28'),
+('33d31172126245d8ad67dff90a', '{\"language\":\"es-es\",\"currency\":\"USD\",\"user_id\":\"1\",\"user_token\":\"X9f3r5K4VTjqplLDR8ec1Wi51QRKYqbf\",\"customer_id\":\"7\",\"shipping_address\":{\"address_id\":\"5\",\"firstname\":\"Alfonso\",\"lastname\":\"Gonzalez\",\"company\":\"\",\"address_1\":\"La Puebla\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Heredia\",\"zone_id\":\"785\",\"zone\":\"Heredia\",\"zone_code\":\"HE\",\"country_id\":\"51\",\"country\":\"Costa Rica\",\"iso_code_2\":\"CR\",\"iso_code_3\":\"CRI\",\"address_format\":\"\",\"custom_field\":null},\"payment_address\":{\"address_id\":\"5\",\"firstname\":\"Alfonso\",\"lastname\":\"Gonzalez\",\"company\":\"\",\"address_1\":\"La Puebla\",\"address_2\":\"\",\"postcode\":\"\",\"city\":\"Heredia\",\"zone_id\":\"785\",\"zone\":\"Heredia\",\"zone_code\":\"HE\",\"country_id\":\"51\",\"country\":\"Costa Rica\",\"iso_code_2\":\"CR\",\"iso_code_3\":\"CRI\",\"address_format\":\"\",\"custom_field\":null},\"compare\":[\"53\",\"54\"]}', '2018-05-12 18:56:05'),
 ('41a7d5ad4edc7bea064b565008', '{\"language\":\"es-es\",\"currency\":\"USD\"}', '2018-04-29 18:39:31'),
 ('62dce3e32ae8b6778b693161de', '{\"language\":\"en-gb\",\"currency\":\"USD\"}', '2018-05-01 20:00:54'),
 ('71cff78d4d65688d4b050cd743', '{\"language\":\"en-gb\",\"currency\":\"USD\"}', '2018-04-30 18:19:21'),
@@ -3603,7 +3652,7 @@ CREATE TABLE `oc_statistics` (
 --
 
 INSERT INTO `oc_statistics` (`statistics_id`, `code`, `value`) VALUES
-(1, 'order_sale', '764.5900'),
+(1, 'order_sale', '870.8400'),
 (2, 'order_processing', '0.0000'),
 (3, 'order_complete', '0.0000'),
 (4, 'order_other', '0.0000'),
@@ -9093,7 +9142,7 @@ ALTER TABLE `oc_banner_image`
 -- AUTO_INCREMENT de la tabla `oc_cart`
 --
 ALTER TABLE `oc_cart`
-  MODIFY `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cart_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `oc_category`
@@ -9117,13 +9166,13 @@ ALTER TABLE `oc_coupon`
 -- AUTO_INCREMENT de la tabla `oc_coupon_history`
 --
 ALTER TABLE `oc_coupon_history`
-  MODIFY `coupon_history_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `coupon_history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `oc_coupon_product`
 --
 ALTER TABLE `oc_coupon_product`
-  MODIFY `coupon_product_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `coupon_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `oc_currency`
@@ -9333,13 +9382,13 @@ ALTER TABLE `oc_option_value`
 -- AUTO_INCREMENT de la tabla `oc_order`
 --
 ALTER TABLE `oc_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `oc_order_history`
 --
 ALTER TABLE `oc_order_history`
-  MODIFY `order_history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `order_history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `oc_order_option`
@@ -9351,7 +9400,7 @@ ALTER TABLE `oc_order_option`
 -- AUTO_INCREMENT de la tabla `oc_order_product`
 --
 ALTER TABLE `oc_order_product`
-  MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `oc_order_recurring`
@@ -9381,7 +9430,7 @@ ALTER TABLE `oc_order_status`
 -- AUTO_INCREMENT de la tabla `oc_order_total`
 --
 ALTER TABLE `oc_order_total`
-  MODIFY `order_total_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `order_total_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `oc_order_voucher`
